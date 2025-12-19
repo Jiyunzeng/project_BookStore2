@@ -1,0 +1,196 @@
+@charset "UTF-8"; /* 파일 문자 인코딩을 UTF-8로 지정 */
+
+/* ===== Colors and Variables ===== */
+:root {
+	--brand: #7e5844; /* 사이트 주요 색상 */
+	--brand-dark: #7e5844; /* 진한 브랜드 색상 */
+	--text: #1c1c1c; /* 기본 텍스트 색상 */
+	--muted: #686868; /* 보조(약한) 텍스트 색상 */
+	--bg: #ffffff; /* 전체 배경색 */
+	--card: #f7f7f7; /* 카드, 박스 배경색 */
+	--radius: 18px; /* 요소 테두리 둥글기 */
+	--shadow: 0 10px 30px rgba(0, 0, 0, .08); /* 그늘 효과 */
+	--section-bg: #f8f9fa; /* 섹션 배경 색상 */
+}
+
+/* reset */
+/* 모든 요소의 box-sizing을 border-box로 통일 */
+* {
+	box-sizing: border-box;
+}
+
+/* html, body 전체 높이 100% 지정 */
+html,
+body {
+	height: 100%;
+}
+
+/* 바디 기본 설정: 마진 없음, 폰트 지정, 배경·텍스트 색상 지정 */
+body {
+	margin: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: var(--bg);
+	color: var(--text);
+}
+
+/* ====================== 헤더 영역 ====================== */
+/* 헤더: 상단 고정, 배경 흰색, 아랫선 경계 */
+header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+/* 네비게이션(메뉴) 기본 레이아웃 설정 */
+.nav {
+	max-width: 1100px; /* 네비 최대 가로 */
+	margin: 0 auto; /* 가운데 정렬 */
+	padding: 14px 20px; /* 위아래, 좌우 여백 */
+	display: flex;
+	align-items: center;
+	justify-content: space-between; /* 좌우 양끝 배치 */
+	gap: 12px;
+}
+
+/* 브랜드 로고 & 텍스트 스타일 */
+.brand {
+	font-weight: 800;
+	letter-spacing: .08em;
+	color: var(--brand);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: .6rem;
+}
+
+/* 로고 이미지 크기 제한 */
+.brand-logo {
+	display: block;
+	height: 30px;
+	width: auto;
+}
+
+/* 네비 오른쪽 메뉴(로그인 등) 레이아웃 */
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	font-size: .95rem;
+	margin-right: -100px;
+}
+
+/* 네비 오른쪽 링크 기본 색상 & 호버 효과 */
+.nav-right a {
+	color: #333;
+	text-decoration: none;
+}
+
+.nav-right a:hover {
+	color: var(--brand-dark);
+}
+
+/* ====================== 공지사항 테이블 스타일 ====================== */
+/* 공지사항 테이블 박스 전체 스타일 */
+.board-table {
+	width: 100%; /* 전체 100% */
+	border-collapse: collapse; /* 테두리 합치기 */
+	margin-bottom: 30px;
+}
+
+/* 테이블 헤더를 grid로 줄 분할(번호, 제목, 여백, 작성일, 조회수) */
+.table-header {
+    display: grid;
+    grid-template-columns: 80px 100px 0px 150px 100px; 
+    background-color: #f9f9f9;
+    padding: 5px 0;
+}
+
+/* 각 셀(헤더/본문) 공통 스타일 */
+.table-cell {
+	padding: 12px;
+	font-size: 14px;
+	text-align: left;
+}
+
+/* 본문 한 줄(행)을 grid로 배치 */
+.table-row {
+    display: grid;
+    grid-template-columns: 80px 100px 0px 500px 100px; 
+    cursor: pointer; /* 마우스오버시 손가락 커서 */
+    transition: background-color .3s ease; /* 배경색 변경 애니메이션 */
+}
+
+/* 마우스오버시 행 배경색 변화 */
+.table-row:hover {
+	background-color: #f4f4f4;
+}
+
+/* 제목 부분 글씨 굵게 */
+.table-cell span.post-title {
+	font-weight: 700;
+}
+
+/* ====================== 페이지네이션 스타일 ====================== */
+/* 페이지네이션(페이지 넘김 버튼들) */
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+/* 페이지네이션 버튼 스타일 */
+.pagination button {
+	padding: 8px 14px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	cursor: pointer;
+	background-color: #fff;
+	transition: background-color .2s ease;
+}
+
+/* 호버시 버튼 배경 */
+.pagination button:hover {
+	background-color: #f2f2f2;
+}
+
+/* 선택된(활성) 버튼 스타일 */
+.pagination button.active {
+	background-color: var(--brand);
+	color: white;
+	border-color: var(--brand);
+}
+
+/* 비활성(클릭불가) 버튼 스타일 */
+.pagination button:disabled {
+	background-color: #e6e6e6;
+	color: #ccc;
+	cursor: not-allowed;
+}
+
+/* ====================== 반응형 디자인 ====================== */
+/* 화면 폭이 768px 이하일 때 적용되는 스타일 */
+@media (max-width: 768px) {
+	.nav {
+		flex-direction: column; /* 세로로 배치 */
+		align-items: flex-start;
+	}
+
+	.nav-right {
+		margin-right: 0; /* 마진 초기화 */
+	}
+
+	.board-table {
+		width: 100%; /* 테이블 너비 꽉 차도록 */
+	}
+
+	.table-header {
+		display: block; /* grid 대신 블록(세로) */
+	}
+
+	.table-row {
+		display: block; /* grid 대신 블록(세로) */
+	}
+}

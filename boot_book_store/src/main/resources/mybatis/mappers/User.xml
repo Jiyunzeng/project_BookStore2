@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.UserDAO">
+
+  <select id="findNicknameByUserId" resultType="String" parameterType="String"> SELECT user_nickname FROM users WHERE user_id = #{userId} </select>
+  <select id="loginYn" parameterType="hashmap" resultType="string">
+        select user_pw from users where user_id=#{user_id}
+  </select>
+    
+  <insert id="register" parameterType="hashmap">
+        insert into users(user_id, user_pw, user_email, user_phone_num, user_post_num, user_address, user_detail_address, user_name, user_nickname,user_role) 
+        values(#{user_id},#{user_pw},#{user_email},#{user_phone_num},#{user_post_num},#{user_address},#{user_detail_address},#{user_name},#{user_nickname},'USER')
+  </insert>
+	
+  <!-- 	아이디 중복 체크 -->
+  <select id="checkId" parameterType="string" resultType="int">
+        select count(*) from users where user_id = #{user_id}
+  </select>
+    
+  <!--     이메일 중복 체크 -->
+  <select id="checkEmail" parameterType="String" resultType="int">
+    	select count(*) from users where user_email = #{user_email} AND user_role != 'INACTIVE'
+  </select>
+    
+  <select id="findIdByEmail" parameterType="String" resultType="String">
+        select user_id from users where user_email = #{user_email}
+  </select>
+    
+  <!--     아이디, 이메일로 비밀번호를 찾음 -->
+  <select id="findPwByIdEmail" parameterType="map" resultType="string">
+        select user_id from users where user_id = #{user_id} and user_email = #{user_email}
+  </select>
+    
+  <!--     사용자의 아이디와 생성된 토큰을 받아, 데이터베이스 토큰을 저장(사용자가 재설정할 권한이 있음을 증명) -->
+  <update id="saveResetToken" parameterType="map">
+ 		update users set user_pwd_reset= #{user_pwd_reset} where user_id= #{user_id}
+  </update>
+ 	
+  <!-- 	 토큰으로 사용자 조회 -->
+  <select id="findUserByResetToken" parameterType="string" resultType="com.boot.dto.UserDTO">
+        select * from users where user_pwd_reset = #{user_pwd_reset}
+  </select>
+ 	
+  <!--  	토큰으로 비밀번호 업데이트 -->
+  <update id="updatePasswordByToken" parameterType="hashmap">
+ 		update users set user_pw= #{user_pw},user_pwd_reset = NULL where user_pwd_reset= #{user_pwd_reset}
+  </update>
+ 
+  <!-- 아이디로 회원 정보 조회 (잠금상태, 세션용) -->
+  <select id="getUserById" parameterType="string" resultType="com.boot.dto.UserDTO">
+        SELECT *
+        FROM users
+        WHERE user_id = #{user_id}
+  </select>
+ 	
+  <!-- 로그인 실패 시 시도 횟수 +1, 시간 갱신 -->
+  <update id="updateLoginFail">
+        UPDATE users
+        SET login_fail_count = login_fail_count + 1,
+            last_fail_time = SYSDATE
+        WHERE user_id = #{user_id}
+  </update>
+
+  <!-- 로그인 성공 시 초기화 -->
+  <update id="resetLoginFail">
+        UPDATE users
+        SET login_fail_count = 0,
+            last_fail_time = NULL
+        WHERE user_id = #{user_id}
+  </update>
+    
+  <!-- 이메일로 기존 회원 조회 -->
+  <select id="getUserByEmail" parameterType="string" resultType="com.boot.dto.UserDTO">
+	    SELECT *
+		FROM users
+		WHERE user_email = #{user_email}
+		  AND user_role != 'INACTIVE'
+  </select>
+	
+  <!-- 소셜 신규 회원 등록 -->
+  <insert id="insertSocialUser" parameterType="map">
+        INSERT INTO users (
+            user_id,
+            user_pw,
+            user_email,
+            user_name,
+            user_nickname,
+            login_type,
+            social_id,
+            user_email_chk,
+            user_phone_num,
+            user_post_num, 
+            user_address, 
+            user_detail_address,
+            reg_date,
+            user_role
+        ) VALUES (
+            #{user_id},
+            'SOCIAL_LOGIN',
+            #{user_email},
+            #{user_name},
+            #{user_nickname},
+            #{login_type},
+            #{social_id},
+            'Y',
+            '000-0000-0000',
+            '47354',
+            '부산시',
+            '범내골',
+            SYSDATE,
+            'USER'
+        )
+  </insert>
+
+  <!-- 🔥 마이페이지: 단건 조회 (여기에 user_role 추가됨) -->
+  <select id="selectUser" parameterType="hashmap" resultType="hashmap">
+    SELECT
+        user_id             AS "user_id",
+        user_name           AS "user_name",
+        user_nickname       AS "user_nickname",
+        user_email          AS "user_email",
+        user_phone_num      AS "user_phone_num",
+        user_post_num       AS "user_post_num",
+        user_address        AS "user_address",
+        user_detail_address AS "user_detail_address",
+        user_role           AS "user_role",          <!-- ⭐ 이 줄 추가 핵심 -->
+        TO_CHAR(reg_date, 'YYYY-MM-DD')        AS "reg_date",
+        TO_CHAR(last_login_date, 'YYYY-MM-DD') AS "last_login_date"
+    FROM users
+    WHERE user_id = #{user_id, jdbcType=VARCHAR}
+  </select>
+
+  <!-- 마이페이지: 정보 수정 (비밀번호 제외) -->
+  <update id="updateUser" parameterType="hashmap">
+    UPDATE users
+       SET user_name            = #{user_name, jdbcType=VARCHAR},
+           user_nickname        = #{user_nickname, jdbcType=VARCHAR},
+           user_email           = #{user_email, jdbcType=VARCHAR},
+           user_phone_num       = #{user_phone_num, jdbcType=VARCHAR},
+           user_post_num        = #{user_post_num, jdbcType=VARCHAR},
+           user_address         = #{user_address, jdbcType=VARCHAR},
+           user_detail_address  = #{user_detail_address, jdbcType=VARCHAR}
+     WHERE user_id = #{user_id, jdbcType=VARCHAR}
+  </update>
+
+  <!-- 일반 로그인 사용자 탈퇴(논리삭제) -->
+  <update id="withdraw" parameterType="hashmap">
+    UPDATE users
+    SET 
+        user_role = 'INACTIVE',
+        user_pw = 'DELETED',
+        user_email = 'deleted_' || user_id || '@deleted.com',
+        user_email_chk = 'N',
+        user_phone_num = '000-0000-0000',
+        user_post_num = '',
+        user_address = '',
+        user_detail_address = '',
+        user_name = '탈퇴회원',
+        user_nickname = '비회원'
+    WHERE user_id = #{user_id}
+      AND user_pw = #{user_pw}
+  </update>
+
+
+  <!-- 소셜 로그인 탈퇴(논리삭제) -->
+  <update id="withdrawSocial" parameterType="map">
+    UPDATE users
+    SET 
+        user_role = 'INACTIVE',
+        user_pw = 'DELETED',
+        user_email = 'deleted_' || user_id || '@deleted.com',
+        user_email_chk = 'N',
+        user_phone_num = '000-0000-0000',
+        user_post_num = '',
+        user_address = '',
+        user_detail_address = '',
+        user_name = '탈퇴회원',
+        user_nickname = '비회원'
+    WHERE user_id = #{user_id}
+      AND login_type = #{login_type}
+  </update>
+
+  <!-- 소셜 로그인 시 기존 탈퇴 사용자 조회 -->
+  <select id="getInactiveUser" parameterType="string" resultType="com.boot.dto.UserDTO">
+    SELECT *
+    FROM users
+    WHERE user_id = #{user_id}
+      AND user_role = 'INACTIVE'
+  </select>
+
+  <!-- 소셜 사용자 재활성화 -->
+  <update id="reactivateSocialUser" parameterType="map">
+    UPDATE users
+    SET user_role           = 'USER',
+        user_name           = #{user_name},
+        user_nickname       = #{user_nickname},
+        user_email          = #{user_email},
+        user_email_chk      = 'Y',
+        user_phone_num      = '000-0000-0000',
+        reg_date            = SYSDATE,
+        login_type          = #{login_type},
+        social_id           = #{social_id},
+        user_pw				= 'SOCIAL_LOGIN',
+        user_post_num		= '47354',
+        user_address 		= '부산시',
+        user_detail_address = '범내골'
+    WHERE user_id = #{user_id}
+      AND user_role = 'INACTIVE'
+  </update>
+
+</mapper>

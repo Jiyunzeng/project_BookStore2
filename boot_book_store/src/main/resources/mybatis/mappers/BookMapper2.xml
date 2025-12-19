@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.BookDAO">
+
+  <select id="existsById" parameterType="int" resultType="boolean">
+    SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
+    FROM Book
+    WHERE book_id = #{bookId}
+  </select>
+
+	<select id="selectBookById" parameterType="int"
+		resultType="com.boot.dto.BookDTO">
+		SELECT book_id, book_title, book_writer, book_pub, book_price,
+		book_image_path
+		FROM Book
+		WHERE book_id = #{bookId}
+	</select>
+</mapper>

@@ -1,0 +1,46 @@
+--1) 리뷰(UserReview) CASCADE 추가
+ALTER TABLE UserReview
+DROP CONSTRAINT fk_review_user;
+
+ALTER TABLE UserReview
+ADD CONSTRAINT fk_review_user
+FOREIGN KEY (user_id)
+REFERENCES users(user_id)
+ON DELETE CASCADE;
+
+--2) 문의(inquiry) CASCADE 추가
+ALTER TABLE inquiry
+DROP CONSTRAINT fk_inquiry_user;
+
+ALTER TABLE inquiry
+ADD CONSTRAINT fk_inquiry_user
+FOREIGN KEY (user_id)
+REFERENCES users(user_id)
+ON DELETE CASCADE;
+
+--3) 게시글(book_board) CASCADE 추가
+ALTER TABLE book_board
+ADD CONSTRAINT fk_board_user
+FOREIGN KEY (user_id)
+REFERENCES users(user_id)
+ON DELETE CASCADE;
+
+--4) 찜목록(wishlist) CASCADE 추가
+ALTER TABLE wishlist
+DROP CONSTRAINT fk_wishlist_user;
+
+ALTER TABLE wishlist
+ADD CONSTRAINT fk_wishlist_user
+FOREIGN KEY (user_id)
+REFERENCES users(user_id)
+ON DELETE CASCADE;
+
+--5) 주문(Orders) CASCADE 추가
+ALTER TABLE Orders
+DROP CONSTRAINT fk_orders_user;
+
+ALTER TABLE Orders
+ADD CONSTRAINT fk_orders_user
+FOREIGN KEY (user_id)
+REFERENCES users(user_id)
+ON DELETE CASCADE;

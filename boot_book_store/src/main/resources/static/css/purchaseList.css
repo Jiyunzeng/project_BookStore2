@@ -1,0 +1,251 @@
+:root{
+  --brand: #7e5844;
+  --brand-dark: #6e4f3e;
+  --text: #1c1c1c;
+  --muted: #686868;
+  --bg: #ffffff;
+  --card: #f7f7f7;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+  --section-bg: #f8f9fa;
+  --success: #2e7d32;
+  --danger: #c62828;
+  --warning: #f57c00;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+}
+
+/* ===== Header ===== */
+header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid #eee; }
+.nav{
+  max-width:1100px; margin:0 auto;
+  padding:14px 20px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.brand{ display:flex; align-items:center; gap:.6rem; color:var(--brand); text-decoration:none; }
+.brand::before{ display:none; }
+.brand-logo{ display:block; height:30px; width:auto; }
+.brand-text {
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--brand);
+}
+@media (max-width:480px){ .brand-logo{ height:24px; } }
+
+.nav-right{ display:flex; align-items:center; gap:18px; font-size:.95rem; }
+.nav-right a{ color:#333; text-decoration:none; }
+.nav-right a:hover{ color:var(--brand-dark) }
+
+/* ===== Promo Bar (갈색 줄) ===== */
+.promo {
+    background: var(--brand);
+    height: 3px;
+    width: 100%;
+}
+
+/* ===== Page Container ===== */
+.page-wrap{
+  min-height:calc(100vh - 3px - 62px);
+  background:var(--section-bg); padding:40px 0;
+}
+.page-container{
+  max-width:1100px; margin:0 auto; padding:0 20px;
+}
+
+/* ===== Page Title ===== */
+.page-title{
+  font-size:clamp(24px,4vw,32px); font-weight:800; color:#2b2b2b; margin:0 0 30px;
+}
+
+/* ===== Tab Navigation ===== */
+.tab-nav{
+  display:flex; gap:0; margin-bottom:30px; background:#fff; border-radius:8px; box-shadow:var(--shadow);
+  overflow:hidden; border:1px solid #eee;
+}
+.tab-button{
+  flex:1; padding:16px 20px; background:#fff; border:none; cursor:pointer;
+  font-size:.95rem; font-weight:600; color:#666; transition:all .2s;
+  border-right:1px solid #eee;
+}
+.tab-button:last-child{ border-right:none; }
+.tab-button:hover{ background:#f8f9fa; color:var(--brand); }
+.tab-button.active{
+  background:var(--brand); color:#fff;
+}
+
+/* ===== Content Card ===== */
+.content-card{
+  background:#fff; border-radius:12px; box-shadow:var(--shadow); overflow:hidden;
+  border:1px solid #f0f0f0;
+}
+
+/* ===== Content Header ===== */
+.content-header{
+  padding:24px; border-bottom:1px solid #eee; display:flex; justify-content:space-between;
+  align-items:center; flex-wrap:wrap; gap:16px;
+}
+.content-title{
+  font-size:1.3rem; font-weight:700; color:#333; margin:0;
+}
+
+/* ===== Search and Filters ===== */
+.search-controls{
+  display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+}
+.search-input{
+  padding:8px 12px; border:1px solid #ddd; border-radius:6px; font-size:.9rem;
+  min-width:200px; outline:none; transition:border .2s;
+}
+.search-input:focus{ border-color:var(--brand); }
+.status-select{
+  padding:8px 12px; border:1px solid #ddd; border-radius:6px; font-size:.9rem;
+  background:#fff; cursor:pointer; outline:none; transition:border .2s;
+}
+.status-select:focus{ border-color:var(--brand); }
+.search-btn{
+  background:var(--brand); color:#fff; border:none; padding:8px 16px; border-radius:6px;
+  font-size:.9rem; font-weight:600; cursor:pointer; transition:background .2s;
+}
+.search-btn:hover{ background:var(--brand-dark); }
+
+/* ===== Table ===== */
+.table-container{
+  overflow-x:auto;
+}
+.purchase-table{
+  width:100%; border-collapse:collapse; font-size:.9rem; table-layout:fixed;
+}
+.purchase-table th{
+  background:#f8f9fa; padding:16px 12px; text-align:center; font-weight:700; color:#333;
+  border-bottom:2px solid #eee; white-space:nowrap;
+}
+.purchase-table th:nth-child(1),
+.purchase-table th:nth-child(2),
+.purchase-table th:nth-child(3),
+.purchase-table th:nth-child(4),
+.purchase-table th:nth-child(5),
+.purchase-table th:nth-child(6){
+  text-align:center;
+  width: 16.66%;
+}
+.purchase-table td{
+  padding:16px 12px; border-bottom:1px solid #eee; vertical-align:middle;
+}
+.purchase-table td:nth-child(1),
+.purchase-table td:nth-child(2),
+.purchase-table td:nth-child(3),
+.purchase-table td:nth-child(4),
+.purchase-table td:nth-child(5),
+.purchase-table td:nth-child(6){
+  text-align:center;
+  width: 16.66%;
+}
+.purchase-table tr:hover{ background:#f8f9fa; }
+
+/* ===== Status Badges ===== */
+.status-badge{
+  display:inline-block; padding:4px 12px; border-radius:20px; font-size:.8rem;
+  font-weight:600; text-align:center; min-width:60px;
+}
+.status-completed{ background:#e8f5e8; color:var(--success); }
+.status-shipping{ background:#fff3e0; color:var(--warning); }
+.status-refunded{ background:#ffebee; color:var(--danger); }
+
+/* ===== Pagination ===== */
+.pagination{
+  display:flex; justify-content:center; align-items:center; gap:8px; padding:24px;
+  background:#f8f9fa; border-top:1px solid #eee;
+}
+.pagination-btn{
+  width:32px; height:32px; border:1px solid #ddd; background:#fff; border-radius:4px;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  font-size:.9rem; color:#666; transition:all .2s;
+}
+.pagination-btn:hover{ border-color:var(--brand); color:var(--brand); }
+.pagination-btn.active{
+  background:var(--brand); color:#fff; border-color:var(--brand);
+}
+.pagination-btn:disabled{
+  background:#f5f5f5; color:#ccc; cursor:not-allowed; border-color:#eee;
+}
+
+/* ===== Footer ===== */
+.footer{ background:#000; color:#fff; padding:32px 0; margin-top:40px; }
+.footer .container{ max-width:1100px; margin:0 auto; padding:0 20px; font-size:.9rem; opacity:.8; }
+
+/* ===== 반응형 ===== */
+@media (max-width:768px){
+  .content-header{ flex-direction:column; align-items:stretch; }
+  .search-controls{ justify-content:center; }
+  .search-input{ min-width:150px; }
+  .purchase-table{ font-size:.8rem; }
+  .purchase-table th, .purchase-table td{ padding:12px 8px; }
+}
+
+@media (max-width:480px){
+  .tab-nav{ flex-direction:column; }
+  .tab-button{ border-right:none; border-bottom:1px solid #eee; }
+  .tab-button:last-child{ border-bottom:none; }
+  .search-controls{ flex-direction:column; }
+  .search-input, .status-select{ width:100%; }
+  .purchase-table{ font-size:.75rem; }
+  .purchase-table th, .purchase-table td{ padding:8px 4px; }
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  gap: 5px;
+}
+
+.pagination-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 8px 12px;
+  margin: 0 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  text-align: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.pagination-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination-btn:disabled {
+  background: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  border-color: #dee2e6;
+}
+
+.pagination-btn span {
+  font-weight: bold;
+}
+
+.clickable-row {
+  cursor: pointer;
+}

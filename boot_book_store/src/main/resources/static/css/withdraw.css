@@ -1,0 +1,161 @@
+:root{
+  --brand: #7e5844;
+  --brand-dark: #6e4f3e;
+  --text: #1c1c1c;
+  --muted: #686868;
+  --bg: #ffffff;
+  --card: #f7f7f7;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+  --section-bg: #f8f9fa;
+  --danger: #c0392b;
+  --success: #2e7d32;
+  --warning: #f57c00;
+  --border: #eee;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.5;
+}
+
+header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid #eee; }
+.nav{ max-width:1100px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--brand); }
+.brand::before{ display:none; }
+.brand-logo{ height:30px; width:auto; display:block; }
+.brand-text {
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--brand);
+}
+@media (max-width:480px){ .brand-logo{ height:24px; } }
+
+.nav-right{ display:flex; align-items:center; gap:18px; font-size:.95rem; }
+.nav-right a{ color:#333; text-decoration:none; }
+.nav-right a:hover{ color:var(--brand-dark); }
+
+/* ===== Promo Bar (갈색 줄) ===== */
+.promo {
+    background: var(--brand);
+    height: 3px;
+    width: 100%;
+}
+
+/* ===== Page Container ===== */
+.page-wrap{
+  min-height:calc(100vh - 3px - 62px);
+  background:var(--section-bg); padding:40px 0;
+}
+.page-container{
+  max-width:1100px; margin:0 auto; padding:0 20px;
+}
+
+/* ===== Page Title ===== */
+.page-title{
+  font-size:clamp(24px,4vw,32px); font-weight:800; color:#2b2b2b; margin:0 0 30px;
+}
+
+/* ===== Tab Navigation ===== */
+.tab-nav{
+  display:flex; gap:0; margin-bottom:30px; background:#fff; border-radius:8px; box-shadow:var(--shadow);
+  overflow:hidden; border:1px solid #eee;
+}
+.tab-button{
+  flex:1; padding:16px 20px; background:#fff; border:none; cursor:pointer;
+  font-size:.95rem; font-weight:600; color:#666; transition:all .2s;
+  border-right:1px solid #eee;
+}
+.tab-button:last-child{ border-right:none; }
+.tab-button:hover{ background:#f8f9fa; color:var(--brand); }
+.tab-button.active{
+  background:var(--brand); color:#fff;
+}
+
+/* ===== Content Card ===== */
+.content-card{
+  background:#fff; border-radius:12px; box-shadow:var(--shadow); overflow:hidden;
+  border:1px solid #f0f0f0;
+}
+
+/* ===== 회원탈퇴 폼 ===== */
+.withdraw-container{
+  max-width:500px; margin:0 auto; padding:40px;
+}
+.withdraw-title{
+  font-size:24px; font-weight:800; color:#333; margin:0 0 30px; text-align:center;
+}
+
+.warning-box{
+  background:#f8f9fa; border:1px solid #e9ecef; border-radius:8px; padding:20px; margin-bottom:30px;
+}
+.warning-header{
+  display:flex; align-items:center; gap:8px; margin-bottom:15px;
+}
+.warning-icon{
+  width:20px; height:20px; background:#ffc107; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:bold; font-size:12px;
+}
+.warning-text{
+  font-weight:600; color:#333; margin:0;
+}
+.warning-list{
+  margin:0; padding-left:20px; color:#555;
+}
+.warning-list li{
+  margin-bottom:8px; line-height:1.5;
+}
+.warning-list strong{
+  color:#dc3545; font-weight:700;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+.form-label{
+  display:block; font-weight:600; color:#333; margin-bottom:8px; font-size:14px;
+}
+.form-input{
+  width:100%; padding:12px 16px; border:1px solid #ddd; border-radius:8px; font-size:15px;
+  background:#fff; transition:border-color .2s, box-shadow .2s;
+}
+.form-input:focus{
+  outline:none; border-color:var(--brand); box-shadow:0 0 0 3px rgba(126,88,68,.1);
+}
+.form-input:disabled{
+  background:#f8f9fa; color:#6c757d; cursor:not-allowed;
+}
+
+.button-group{
+  display:flex; gap:12px; margin-top:30px;
+}
+.btn{
+  flex:1; padding:14px 20px; border:none; border-radius:8px; font-weight:600; font-size:15px;
+  cursor:pointer; transition:all .2s; text-align:center;
+}
+.btn-primary{
+  background:var(--brand); color:#fff;
+}
+.btn-primary:hover{
+  background:var(--brand-dark); transform:translateY(-1px);
+}
+.btn-secondary{
+  background:#6c757d; color:#fff;
+}
+.btn-secondary:hover{
+  background:#5a6268; transform:translateY(-1px);
+}
+
+/* ===== 푸터(간략) ===== */
+.footer{ background:#000; color:#fff; padding:40px 0 30px; }
+.footer-container{ max-width:1100px; margin:0 auto; padding:0 20px; }
+.footer-brand{ font-size:24px; font-weight:800; margin-bottom:10px; color:var(--brand); }
+.footer-info{ font-size:13px; line-height:1.8; opacity:.8; }
+
+/* ===== 반응형 ===== */
+@media (max-width:768px){
+  .withdraw-container{ padding:20px; }
+  .button-group{ flex-direction:column; }
+}

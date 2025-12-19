@@ -1,0 +1,773 @@
+@charset "UTF-8";
+/* ===== main.css (페이지 전용) ===== */
+:root{
+  --brand:#7e5844; --brand-dark:#7e5844; --text:#1c1c1c; --muted:#686868;
+  --bg:#ffffff; --card:#f7f7f7; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+  --section-bg:#f8f9fa;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:'Noto Sans KR',sans-serif;color:var(--text);background:var(--bg);line-height:1.5}
+
+/* 상단 프로모션 바 + 네비 등등 — 아래부터는 네가 준 CSS 그대로 */
+.promo{background:var(--brand);padding:0;position:relative;z-index:6}
+.promo-content{max-width:1100px;margin:0 auto;height:50px;display:flex;justify-content:center;align-items:center;position:relative}
+.promo-nav{display:flex;align-items:center;gap:140px}
+.promo-nav a{display:inline-flex;align-items:center;padding:0;border-radius:0;color:#fff;text-decoration:none;font-family:'Noto Sans KR',sans-serif;font-weight:400;font-size:clamp(18px,2.2vw,20px);letter-spacing:.02em;position:relative;transition:color .2s ease}
+.promo-nav a::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:3px;background:#fff;border-radius:3px;transform:scaleX(0);transform-origin:50% 100%;transition:transform .25s ease;opacity:.95}
+.promo-nav a:hover::after{transform:scaleX(1)}
+.promo-nav a + a::before{content:"";position:absolute;left:-70px;top:50%;width:2px;height:26px;background:rgba(255,255,255,.65);transform:translateY(-50%);border-radius:2px}
+@media (max-width:720px){
+  .promo-content{height:56px}.promo-nav{gap:48px}.promo-nav a{font-weight:700;font-size:18px}
+  .promo-nav a + a::before{left:-24px;height:20px}
+  .promo::after{display:none}
+}
+.promo-nav a:hover{background:rgba(255,255,255,0.1)}
+
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+.nav{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:800;letter-spacing:.08em;color:var(--brand);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.brand::before{display:none}
+.brand-logo{display:block;height:30px;width:auto}
+.brand-text{font-weight:800;letter-spacing:.02em;color:var(--brand)}
+@media (max-width:480px){.brand-logo{height:24px}}
+.nav-right{display:flex;align-items:center;gap:18px;font-size:.95rem;margin-right: -100px;}
+.nav-right a{color:#333;text-decoration:none}
+.nav-right a:hover{color:var(--brand-dark)}
+
+.main-search{display:flex;justify-content:center;margin-bottom:40px}
+.search-box{position:relative;max-width:700px;width:100%}
+.search-input{width:100%;padding:20px 60px 20px 20px;font-size:18px;border:none;border-radius:50px;outline:none;transition:all .3s ease;background:rgba(255,255,255,.95);box-shadow:0 8px 32px rgba(0,0,0,.2);backdrop-filter:blur(10px)}
+.search-input:focus{background:#fff;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.search-input::placeholder{color:#666}
+.search-button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--brand);border:none;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s ease}
+.search-button:hover{background:var(--brand-dark);transform:translateY(-50%) scale(1.05)}
+.search-button svg{width:20px;height:20px;color:#fff}
+
+.hero{background:url("https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170") center/cover no-repeat;padding:0 20px;min-height:50vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.3);z-index:1}
+.hero::before{content:'';position:absolute;inset:0;opacity:.3;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="books" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="20" height="20" fill="rgba(255,255,255,0.05)"/><rect x="2" y="2" width="16" height="16" fill="rgba(255,255,255,0.1)"/><rect x="4" y="4" width="12" height="12" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23books)"/></svg>') repeat}
+.hero-content{text-align:center;color:#fff;z-index:3;position:relative;max-width:800px;padding:0 20px}
+.hero h1{font-size:clamp(28px,4.5vw,42px);line-height:1.2;margin:0 0 20px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.3)}
+.hero p{font-size:clamp(18px,3vw,24px);margin:0 0 40px;opacity:.9;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.btn{display:inline-block;margin-top:26px;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;letter-spacing:.02em;padding:12px 20px;border-radius:12px;box-shadow:0 6px 16px rgba(139,79,47,.22);transition:transform .08s ease, box-shadow .2s ease, background .2s ease}
+.btn:hover{background:var(--brand-dark);box-shadow:0 8px 22px rgba(139,79,47,.28)}
+.btn:active{transform:translateY(1px)}
+
+.products-section{background:var(--section-bg);padding:80px 0}
+.products-container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:50px;color:var(--text)}
+
+
+
+/* hover 효과 */
+.cart-btn:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+}
+
+.load-more-btn{display:block;margin:40px auto 0;background:var(--brand);color:#fff;border:none;padding:12px 30px;border-radius:25px;font-size:16px;font-weight:600;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 15px rgba(139,79,47,.2)}
+.load-more-btn:hover{background:var(--brand-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(139,79,47,.3)}
+
+.quotes-section{font-family:'Noto Serif KR','Inter',serif;font-optical-sizing:auto;font-weight:400;font-style:normal;letter-spacing:.02em;background:#fff;padding:72px 0}
+.quotes-container{max-width:1100px;margin:0 auto;padding:0 20px}
+.quotes-header{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}
+.quotes-title{margin:0;font-weight:800;font-size:clamp(22px,3vw,28px);letter-spacing:.01em;color:var(--text)}
+.quotes-sub{margin:0;font-size:14px;color:var(--muted)}
+.q-wrap{position:relative}
+.q-track{display:flex;gap:16px;overflow-x:auto;padding:6px 2px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.q-track::-webkit-scrollbar{display:none}
+.q-card{scroll-snap-align:start;flex:0 0 calc((100% - 32px) / 3);max-width:calc((100% - 32px) / 3);min-width:300px;background:#fff;border-radius:14px;border:1px solid #eee;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .2s ease}
+.q-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
+.q-bar{height:6px;background:linear-gradient(90deg,var(--brand),var(--brand-dark))}
+.q-body{padding:18px 18px 14px}
+.q-quote{position:relative;font-size:15px;line-height:1.7;color:#222;margin:0}
+.q-quote::before{content:"“";position:absolute;left:-8px;top:-10px;font-size:28px;color:rgba(0,0,0,.15);font-weight:700}
+.q-quote::after{content:"”";margin-left:4px;color:rgba(0,0,0,.15)}
+.q-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;font-size:13px;color:var(--muted)}
+.q-book{display:flex;align-items:center;gap:10px}
+.q-thumb{width:40px;height:56px;border-radius:6px;background:linear-gradient(135deg,#f3f3f3,#e9e9e9);box-shadow:inset 0 0 0 1px #ededed;flex:0 0 40px}
+.q-info{display:flex;flex-direction:column}
+.q-title{font-weight:700;color:#333;line-height:1.2}
+.q-author{opacity:.8}
+.q-pub{padding:6px 10px;border-radius:999px;border:1px solid #eee;background:#fafafa;color:#555;font-weight:600}
+.q-nav{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.q-btn{pointer-events:auto;border:none;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.q-btn:hover{background:rgba(0,0,0,.6)}
+@media (max-width:920px){.q-card{flex:0 0 calc((100% - 16px) / 2);max-width:calc((100% - 16px) / 2)}
+}
+@media (max-width:560px){.q-card{flex:0 0 100%;max-width:100%}
+}
+
+.testimonials-section{background:var(--brand);padding:80px 0;color:#fff}
+.testimonials-container{max-width:1100px;margin:0 auto;padding:0 20px}
+.testimonials-title{text-align:center;font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:50px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.testimonial-card{background:#fff;backdrop-filter:blur(10px);border-radius:var(--radius);padding:30px;border:1px solid rgba(255,255,255,.2)}
+.testimonial-title{font-size:14px;font-weight:600;margin-bottom:15px;color:#A24F26}
+.testimonial-text{font-size:16px;line-height:1.6;margin-bottom:20px;opacity:.9;color:#111}
+.testimonial-author{font-size:14px;font-weight:600;opacity:.8;color:#555}
+
+.faq-section{padding:80px 0;background:#fff}
+.faq-container{max-width:800px;margin:0 auto;padding:0 20px}
+.faq-item{border-bottom:1px solid #eee;padding:20px 0}
+.faq-question{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:600;cursor:pointer;padding:10px 0}
+.faq-icon{font-size:20px;color:var(--brand)}
+
+.footer{background:#000;color:#fff;padding:60px 0 30px}
+.footer-container{max-width:1100px;margin:0 auto;padding:0 20px}
+.footer-brand{font-size:32px;font-weight:800;margin-bottom:20px;color:var(--brand)}
+.footer-info{font-size:14px;line-height:1.8;margin-bottom:30px;opacity:.8}
+.footer-links{display:flex;gap:30px;margin-top:20px}
+.footer-links a{color:#fff;text-decoration:none;opacity:.8}
+.footer-links a:hover{opacity:1}
+
+@media (max-width:920px){
+  .hero{min-height:80vh}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .search-input{font-size:16px;padding:16px 50px 16px 16px}
+  .search-button{width:40px;height:40px}
+  .search-button svg{width:18px;height:18px}
+  .hero h1{font-size:clamp(28px,4vw,40px)}
+  .hero p{font-size:clamp(16px,2.5vw,20px)}
+}
+@media (max-width:600px){.products-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.nav-right{gap:12px;font-size:.92rem}.promo{font-size:.8rem}.footer-links{flex-direction:column;gap:15px}}
+
+/* 텍스트 기반 고객지원 메뉴 */
+.admin-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.admin-text {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 400;
+  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.admin-text:hover {
+  color: var(--brand); /* 메인 톤 */
+}
+
+.arrow {
+  font-size: 10px;
+  opacity: 0.6;
+  transition: transform .2s ease;
+}
+
+/* 열렸을 때 화살표 회전 */
+.admin-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* 드롭다운 메뉴 */
+.admin-menu {
+  position: absolute;
+  top: 22px;
+  right: 0;
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 6px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  min-width: 140px;
+  display: none;
+  animation: fadeSlide .2s ease;
+  z-index: 1000;
+}
+
+.admin-menu a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+  transition: background .2s ease;
+}
+
+.admin-menu a:hover {
+  background: #f7f3f0;
+  color: var(--brand);
+}
+
+/* open 상태 */
+.admin-dropdown.open .admin-menu {
+  display: block;
+}
+
+/* 등장 animation */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#chatbot-float-btn {
+  position: fixed;
+  right: 35px;
+  bottom: 50px;
+  z-index: 9999;
+}
+
+#chatbotBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  color: #fff;
+  font-size: 32px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#chatbotBtn:hover {
+  background: rgb(128, 128, 128);
+}
+
+#chatbotModal {
+  position: fixed;
+  right: 35px;
+  bottom: 130px;
+  z-index: 10000;
+}
+
+.chatbot-window {
+  width: 370px;
+  height: 520px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatbot-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+#chatbotBtn img {
+    margin-top: 10px; 
+}
+
+#chatbotClose {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 28px;
+  margin: 8px 16px 0 0;
+  cursor: pointer;
+}
+
+#chatbot-float-btn,
+#chatbotModal {
+  position: fixed;
+  z-index: 9999;
+}
+/* 모달 전체 */
+.chatbot-modal {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1000;
+}
+
+/* 채팅창 전체 박스 */
+.chatbot-window {
+    width: 450px;
+    height: 600px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 닫기 버튼 */
+.chatbot-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 메시지 표시 영역 */
+.chat-messages {
+    flex: 1;
+    padding: 16px;
+    padding-top: 60px;  /* 닫기 버튼 여유 공간 확보 */
+    overflow-y: auto;
+    background: #f7f7fa;
+}
+
+/* 공통 메시지 라인 */
+.chat-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+/* 🔹 봇 : 왼쪽 정렬 */
+.chat-msg.bot {
+    justify-content: flex-start;
+}
+
+/* 🔹 유저 : 오른쪽 정렬(아바타 없음) */
+.chat-msg.user {
+    justify-content: flex-end;
+}
+
+/* 봇 아바타 */
+.chat-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 말풍선 공통 */
+.msg-bubble {
+    max-width: 70%;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    border-radius: 14px;
+    white-space: pre-wrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* --- 긴 메시지 접기(더보기 기능) --- */
+.msg-bubble.collapsed {
+    max-height: 120px;        /* 처음에 보여줄 높이 */
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 26px;     /* 버튼 영역 확보 */
+}
+
+/* fade-out 효과 */
+/*.msg-bubble.collapsed::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    bottom: 20px;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 12px;*/
+/*    background: linear-gradient(*/
+/*        to bottom,*/
+/*        rgba(241,240,240,0),*/
+/*        rgba(241,240,240,1)*/
+/*    );*/
+/*}*/
+
+
+/* 더보기 버튼 */
+/*.see-more-btn {*/
+/*    position: absolute;*/
+/*    bottom: 4px;*/
+/*    right: 10px;*/
+/*    background: #e0e0e5;*/
+/*    border: none;*/
+/*    padding: 3px 8px;*/
+/*    font-size: 12px;*/
+/*    cursor: pointer;*/
+/*    border-radius: 6px;*/
+/*    outline: none;*/
+/*    box-shadow: none;*/
+/*     절대의미 잘 보이게 */
+/*    z-index: 2;*/
+/*}*/
+.see-more-btn {
+    position: absolute;
+    bottom: 4px;
+    right: 10px;
+    z-index: 10;                /* fade-out보다 반드시 큼 */
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+.msg-bubble.collapsed::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 36px;                /* 흐려질 영역 크기 */
+    z-index: 2;                  /* 버튼보다 작은 값 */
+    pointer-events: none;        /* 클릭 이벤트 무시 */
+    background: linear-gradient(
+        to bottom,
+        rgba(236,236,241,0) 0%,
+        rgba(236,236,241,1) 100%
+    );
+}
+.see-more-btn:focus { outline: none; }
+.see-more-btn:hover { background: #d0d0d5; }
+
+
+/* 사용자 메시지 */
+.chat-msg.user {
+    justify-content: flex-end;
+}
+
+.chat-msg.user .msg-bubble {
+    background: #c9f7d4;
+    border-bottom-right-radius: 4px;
+}
+
+/* 봇 메시지 */
+.chat-msg.bot {
+    justify-content: flex-start;
+}
+
+.chat-msg.bot .msg-bubble {
+    background: #ececf1;
+    border-bottom-left-radius: 4px;
+}
+
+/* 입력 영역 */
+.chat-input-box {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.chat-send-btn {
+    margin-left: 8px;
+    padding: 0 14px;
+    background: #4c8bf5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.chat-send-btn:hover {
+    background: #3a78e0;
+}
+
+/* === typing indicator === */
+.typing-animation {
+    background: #ececf1;
+    padding: 10px 16px;
+    border-radius: 12px;
+    display: flex;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    max-width: 60px;
+}
+
+.typing-animation .dot {
+    width: 8px;
+    height: 8px;
+    background: #999;
+    border-radius: 50%;
+    animation: typingBlink 1.4s infinite both;
+}
+
+.typing-animation .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-animation .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* --- heart button --- */
+.heart-btn {
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:36px;
+  height:36px;
+  background:rgba(255,255,255,0.9);
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+  transition:all .2s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.heart-btn:hover {
+  background:#fff;
+  transform:scale(1.1);
+}
+.heart-btn .heart-empty {
+  fill:none;
+  stroke:#666;
+  stroke-width:2;
+}
+.heart-btn.active .heart-empty {
+  fill:#e74c3c;
+  stroke:#e74c3c;
+}
+
+/* --- cart button --- */
+.cart-btn {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:var(--brand);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:8px 14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.cart-btn:hover {
+  background:var(--brand-dark);
+  transform:translateY(-2px);
+}
+.cart-btn svg {
+  width:18px;
+  height:18px;
+  stroke:#fff;
+}
+
+
+@keyframes typingBlink {
+    0% { opacity: .2; transform: translateY(0); }
+    20% { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: .2; transform: translateY(0); }
+}
+
+/* ========== 카드 UI 공통 ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* 카드 전체 */
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: .2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,.12);
+}
+
+/* 썸네일 */
+.thumb {
+  height: 200px;
+  background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb::before {
+  content: "📚";
+  font-size: 48px;
+  opacity: .35;
+}
+
+.thumb img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 0;
+}
+
+/* 책 분류 배지 */
+.badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  opacity: .8;
+  z-index: 2;
+}
+
+/* ========== 찜(하트) 버튼 ========== */
+.heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heart-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.heart-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease;
+}
+
+.heart-btn .heart-empty {
+  fill: none;
+  stroke: #666;
+  stroke-width: 2;
+}
+
+.heart-btn.active .heart-empty {
+  fill: #e74c3c;
+  stroke: #e74c3c;
+}
+
+.heart-btn.active svg {
+  animation: heartBeat 0.3s ease;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ========== 카드 내부 정보 영역 ========== */
+.info {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 150px;
+}
+
+/* 제목 */
+.title-sm {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.title-sm a.title-link {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.title-sm a.title-link:hover,
+.title-sm a.title-link:focus {
+  color: #1c1c1c;
+  text-decoration: none;
+}
+
+/* 작가 */
+.author {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* 가격 */
+.price {
+  margin: 2px 0 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+/* 가격 + 장바구니 버튼 정렬 */
+.info-bottom {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 장바구니 버튼 */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cart-btn:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+}
+
+.cart-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+}
+
+/* 반응형 */
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+

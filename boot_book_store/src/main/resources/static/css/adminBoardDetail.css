@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+/* ===== 관리자 공통 색상(브라운 테마로 통일) ===== */
+:root{
+  --brand: #795438;
+  --brand-dark: #6b4f34;
+  --text: #3e2c1c;
+  --muted: #7a6c5f;
+  --bg: #f2eee9;
+  --card: #ffffff;
+  --radius: 16px;
+  --shadow: 0 10px 25px rgba(0,0,0,.12);
+}
+
+/* Reset */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* ===================== 컨테이너 ===================== */
+.write-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.write-header {
+  margin-bottom: 30px;
+}
+.write-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px 0;
+}
+
+/* ===================== 상단 정보 테이블 ===================== */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.info-table th, .info-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  border-bottom: 1px solid #ece4d9;
+  text-align: left;
+}
+
+.info-table th {
+  width: 18%;
+  background: #f6f0ea;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.info-table tr:last-child th,
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.info-table td {
+  color: #4b3b2a;
+}
+
+/* ===================== 파일 링크 ===================== */
+.file-link {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.file-link:hover {
+  text-decoration: underline;
+}
+
+/* ===================== 폼 박스 ===================== */
+.write-form {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+}
+
+/* 입력 그룹 */
+.form-group { margin-bottom: 24px; }
+
+.form-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.form-label.required::after {
+  content: " *";
+  color: #e25555;
+}
+
+/* 입력창 */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #e5d9ce;
+  background: #faf7f3;
+  font-size: 15px;
+  outline: none;
+  transition: .25s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--brand);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(121,84,56,.15);
+}
+
+/* 내용 textarea */
+.form-textarea {
+  min-height: 260px;
+  resize: vertical;
+}
+
+/* ===================== 버튼 공통 ===================== */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: all .2s ease;
+}
+
+/* 목록 버튼 – 관리자 테마 */
+.btn-list {
+  background: var(--brand);
+  color: #fff;
+}
+.btn-list:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+}
+
+/* 수정 버튼 (파란 톤 유지) */
+.btn-edit {
+  background: #3498db;
+  color: #fff;
+}
+.btn-edit:hover {
+  background: #2775b4;
+  transform: translateY(-2px);
+}
+
+/* 삭제 버튼 (레드) */
+.btn-delete {
+  background: #e74c3c;
+  color: #fff;
+}
+.btn-delete:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* 게시글 등록 버튼 */
+.btn-write {
+  background: #3199ff;
+  color: #fff;
+}
+.btn-write:hover {
+  background: #2a7ed3;
+  transform: translateY(-2px);
+}
+
+/* ===================== 반응형 ===================== */
+@media (max-width: 768px) {
+  .write-form { padding: 24px; }
+  .form-actions { flex-direction: column; }
+  .btn { width: 100%; }
+}

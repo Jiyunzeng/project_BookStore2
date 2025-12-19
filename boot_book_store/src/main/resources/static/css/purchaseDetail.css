@@ -1,0 +1,187 @@
+:root {
+  --brand: #7a563d;
+  --brand-dark: #694a35;
+  --brand-light: #694a35;
+
+  --text: #1e1e1e;
+  --muted: #767676;
+
+  --bg: #faf9f8;
+  --card: #ffffff;
+
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+}
+
+*{box-sizing:border-box}
+
+html,body{height:100%}
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ===== Header ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e7e4e1;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand{ display:flex; align-items:center; gap:.6rem; color:var(--brand); text-decoration:none; }
+.brand::before{ display:none; }
+.brand-logo{ display:block; height:30px; width:auto; }
+.brand-text {
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--brand);
+}
+@media (max-width:480px){ .brand-logo{ height:24px; } }
+
+.nav-right{ display:flex; align-items:center; gap:18px; font-size:.95rem; }
+.nav-right a{ color:#333; text-decoration:none; }
+.nav-right a:hover{ color:var(--brand-dark) }
+
+/* ===== Promo Bar (갈색 줄) ===== */
+.promo {
+    background: var(--brand);
+    height: 3px;
+    width: 100%;
+}
+
+/* ===== Page Container ===== */
+.page-wrap{
+  min-height:calc(100vh - 3px - 62px);
+  background:var(--section-bg); padding:40px 0;
+}
+.page-container{
+  max-width:1100px; margin:0 auto; padding:0 20px;
+}
+
+/* ===== Page Title ===== */
+.page-title{
+  font-size:clamp(24px,4vw,32px); font-weight:800; color:#2b2b2b; margin:0 0 30px;
+}
+
+
+/* -------------------- Detail Table -------------------- */
+.detail-table {
+  width: 100%;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  font-size: 0.96rem;
+}
+
+.detail-table thead th {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+  padding: 14px 8px;
+  font-weight: 700;
+  border-bottom: 2px solid #e8ded7;
+  color: #fff
+}
+
+.detail-table td {
+  padding: 16px 12px;
+  text-align: center;
+  border-bottom: 1px solid #f1ebe7;
+}
+
+.detail-table tbody tr:hover {
+  background: #fdf8f3;
+}
+
+/* 이미지 썸네일 */
+.thumb {
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+/* -------------------- Summary Section -------------------- */
+.summary-section {
+  background: var(--card);
+  padding: 20px 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 450px;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.summary-section div {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--brand-dark);
+}
+
+/* -------------------- Empty Message -------------------- */
+.empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+  padding: 40px;
+}
+
+/* -------------------- Back Button -------------------- */
+.btn-brand {
+  background: var(--brand);
+  color: white;
+  padding: 12px 28px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.25s;
+}
+
+.btn-brand:hover {
+  background: var(--brand-dark);
+}
+
+/* -------------------- Mobile Responsive -------------------- */
+@media (max-width: 640px) {
+  .detail-table,
+  .summary-section {
+    font-size: 0.88rem;
+  }
+
+  .thumb {
+    width: 52px;
+    height: 72px;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+}
+
+
+/* ===== Footer ===== */
+.footer{ background:#000; color:#fff; padding:32px 0; margin-top:40px; }
+.footer .container{ max-width:1100px; margin:0 auto; padding:0 20px; font-size:.9rem; opacity:.8; }

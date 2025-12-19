@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.dao.InquiryDAO">
+
+    <!-- 문의 작성 -->
+    <insert id="insertInquiry" parameterType="com.boot.dto.InquiryDTO">
+        <selectKey keyProperty="inquiry_id" resultType="int" order="BEFORE">
+            SELECT inquiry_seq.NEXTVAL FROM dual
+        </selectKey>
+        INSERT INTO inquiry (inquiry_id, user_id, title, content, status, created_date, updated_date)
+        VALUES (#{inquiry_id}, #{user_id}, #{title}, #{content}, '대기중', SYSDATE, SYSDATE)
+    </insert>
+
+    <!-- 사용자별 문의 목록 조회 - 최신 답변만 -->
+    <select id="selectInquiryByUserId" parameterType="string" resultMap="inquiryResultMap">
+        SELECT 
+            i.inquiry_id,
+            i.user_id,
+            i.title,
+            i.content,
+            i.status,
+            i.created_date,
+            i.updated_date,
+            u.user_name,
+            r.reply_id,
+            r.reply_content,
+            r.created_date as reply_date
+        FROM inquiry i
+        LEFT JOIN users u ON i.user_id = u.user_id
+        LEFT JOIN (
+            SELECT inquiry_id, reply_id, reply_content, created_date
+            FROM (
+                SELECT inquiry_id, reply_id, reply_content, created_date,
+                       ROW_NUMBER() OVER (PARTITION BY inquiry_id ORDER BY reply_id DESC) as rn
+                FROM inquiry_reply
+            )
+            WHERE rn = 1
+        ) r ON i.inquiry_id = r.inquiry_id
+        WHERE i.user_id = #{user_id}
+        ORDER BY i.created_date DESC
+    </select>
+
+    <!-- 문의 상세 조회 (답변 포함) - 최신 답변만 -->
+    <select id="selectInquiryById" parameterType="int" resultMap="inquiryResultMap">
+        SELECT 
+            i.inquiry_id,
+            i.user_id,
+            i.title,
+            i.content,
+            i.status,
+            i.created_date,
+            i.updated_date,
+            u.user_name,
+            r.reply_id,
+            r.reply_content,
+            r.created_date as reply_date,
+            r.admin_id
+        FROM inquiry i
+        LEFT JOIN users u ON i.user_id = u.user_id
+        LEFT JOIN (
+            SELECT * FROM (
+                SELECT 
+                    inquiry_id,
+                    reply_id,
+                    reply_content,
+                    created_date,
+                    admin_id
+                FROM inquiry_reply
+                WHERE inquiry_id = #{inquiry_id}
+                ORDER BY reply_id DESC
+            ) WHERE ROWNUM = 1
+        ) r ON i.inquiry_id = r.inquiry_id
+        WHERE i.inquiry_id = #{inquiry_id}
+    </select>
+
+    <!-- 관리자용: 전체 문의 목록 조회 - 최신 답변만 -->
+    <select id="selectAllInquiries" resultMap="inquiryResultMap">
+        SELECT 
+            i.inquiry_id,
+            i.user_id,
+            i.title,
+            i.content,
+            i.status,
+            i.created_date,
+            i.updated_date,
+            u.user_name,
+            r.reply_id,
+            r.reply_content,
+            r.created_date as reply_date
+        FROM inquiry i
+        LEFT JOIN users u ON i.user_id = u.user_id
+        LEFT JOIN (
+            SELECT inquiry_id, reply_id, reply_content, created_date
+            FROM (
+                SELECT inquiry_id, reply_id, reply_content, created_date,
+                       ROW_NUMBER() OVER (PARTITION BY inquiry_id ORDER BY reply_id DESC) as rn
+                FROM inquiry_reply
+            )
+            WHERE rn = 1
+        ) r ON i.inquiry_id = r.inquiry_id
+        ORDER BY i.created_date DESC
+    </select>
+
+    <!-- 관리자용: 답변 대기 중인 문의만 조회 -->
+    <select id="selectPendingInquiries" resultMap="inquiryResultMap">
+        SELECT 
+            i.inquiry_id,
+            i.user_id,
+            i.title,
+            i.content,
+            i.status,
+            i.created_date,
+            i.updated_date,
+            u.user_name
+        FROM inquiry i
+        LEFT JOIN users u ON i.user_id = u.user_id
+        WHERE i.status = '대기중'
+        ORDER BY i.created_date DESC
+    </select>
+
+    <!-- 답변 작성 -->
+    <insert id="insertReply" parameterType="com.boot.dto.InquiryReplyDTO">
+        <selectKey keyProperty="reply_id" resultType="int" order="BEFORE">
+            SELECT inquiry_reply_seq.NEXTVAL FROM dual
+        </selectKey>
+        INSERT INTO inquiry_reply (reply_id, inquiry_id, admin_id, reply_content, created_date)
+        VALUES (#{reply_id}, #{inquiry_id}, #{admin_id}, #{reply_content}, SYSDATE)
+    </insert>
+
+    <!-- 답변 수정 (reply_id로) -->
+    <update id="updateReply" parameterType="com.boot.dto.InquiryReplyDTO">
+        UPDATE inquiry_reply
+        SET reply_content = #{reply_content},
+            admin_id = #{admin_id}
+        WHERE reply_id = #{reply_id}
+    </update>
+
+    <!-- inquiry_id로 답변 조회 (최신 답변 1개만) -->
+    <select id="selectReplyByInquiryId" parameterType="int" resultType="com.boot.dto.InquiryReplyDTO">
+        SELECT * FROM (
+            SELECT 
+                reply_id,
+                inquiry_id,
+                admin_id,
+                reply_content,
+                created_date
+            FROM inquiry_reply
+            WHERE inquiry_id = #{inquiry_id}
+            ORDER BY reply_id DESC
+        ) WHERE ROWNUM = 1
+    </select>
+
+    <!-- 문의 상태 업데이트 -->
+    <update id="updateInquiryStatus">
+        UPDATE inquiry
+        SET status = #{status},
+            updated_date = SYSDATE
+        WHERE inquiry_id = #{inquiry_id}
+    </update>
+
+    <!-- 문의 삭제 -->
+    <delete id="deleteInquiry" parameterType="int">
+        DELETE FROM inquiry WHERE inquiry_id = #{inquiry_id}
+    </delete>
+
+    <!-- 답변 삭제 -->
+    <delete id="deleteReply" parameterType="int">
+        DELETE FROM inquiry_reply WHERE reply_id = #{reply_id}
+    </delete>
+
+    <!-- ResultMap -->
+    <resultMap id="inquiryResultMap" type="com.boot.dto.InquiryDTO">
+        <id property="inquiry_id" column="inquiry_id" />
+        <result property="user_id" column="user_id" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="status" column="status" />
+        <result property="created_date" column="created_date" />
+        <result property="updated_date" column="updated_date" />
+        <result property="user_name" column="user_name" />
+        <association property="reply" javaType="com.boot.dto.InquiryReplyDTO">
+            <id property="reply_id" column="reply_id" />
+            <result property="inquiry_id" column="inquiry_id" />
+            <result property="admin_id" column="admin_id" />
+            <result property="reply_content" column="reply_content" />
+            <result property="created_date" column="reply_date" />
+        </association>
+    </resultMap>
+
+</mapper>

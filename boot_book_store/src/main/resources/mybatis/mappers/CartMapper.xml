@@ -1,0 +1,107 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.dao.CartDAO">
+
+	<insert id="insertCartItem"
+		parameterType="com.boot.dto.CartDTO">
+		INSERT INTO cart (cart_id, user_id, book_id, quantity, cart_date)
+		VALUES (cart_seq.NEXTVAL, #{user_id}, #{book_id}, #{quantity}, SYSDATE)
+	</insert>
+
+	<!-- 사용자+도서로 단건 조회 -->
+	<select id="selectCartItemByUserAndBook" parameterType="map"
+		resultType="com.boot.dto.CartDTO">
+		SELECT cart_id, user_id, book_id, quantity, cart_date
+		FROM cart
+		WHERE user_id = #{user_id}
+		AND book_id = #{book_id}
+	</select>
+
+	<!-- 수량 수정 -->
+	<update id="updateCartQuantity"
+		parameterType="com.boot.dto.CartDTO">
+		UPDATE cart
+		SET quantity = #{quantity}
+		WHERE cart_id = #{cart_id}
+	</update>
+
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteCartItem" parameterType="int">
+		DELETE FROM cart WHERE cart_id = #{cart_id}
+	</delete>
+
+	<delete id="deleteCartItemByUserIdAndBookIds" parameterType="map">
+	    DELETE FROM cart
+	    WHERE user_id = #{user_id}
+	    AND book_id IN
+	    <foreach collection="bookIds" item="bookId" open="(" separator="," close=")">
+	        #{bookId}
+	    </foreach>
+	</delete>
+
+	<!-- 사용자 장바구니 + 도서정보 JOIN 조회 -->
+	<select id="selectCartWithBookByUserId" parameterType="string"
+		resultMap="cartBookResultMap">
+		SELECT
+		c.cart_id, c.user_id, c.book_id, c.quantity, c.cart_date,
+		b.book_title, b.book_writer, b.book_price, b.book_isbn,b.book_image_path
+		FROM cart c
+		JOIN book b ON c.book_id = b.book_id
+		WHERE c.user_id = #{user_id}
+		ORDER BY c.cart_date DESC
+	</select>
+
+	<resultMap id="cartBookResultMap"
+		type="com.boot.dto.CartDTO">
+		<id property="cart_id" column="cart_id" />
+		<result property="user_id" column="user_id" />
+		<result property="book_id" column="book_id" />
+		<result property="quantity" column="quantity" />
+		<result property="cart_date" column="cart_date" />
+		<association property="book"
+			javaType="com.boot.dto.BookDTO">
+			<id property="book_id" column="book_id" />
+			<result property="book_title" column="book_title" />
+			<result property="book_writer" column="book_writer" />
+			<result property="book_price" column="book_price" />
+			<result property="book_isbn" column="book_isbn" />
+			<result property="book_image_path" column="book_image_path"/>
+		</association>
+	</resultMap>
+
+	<!-- 사용자/도서로 삭제 -->
+	<delete id="deleteCartItemByUserIdAndBookId" parameterType="map">
+		DELETE FROM cart
+		WHERE user_id = #{user_id}
+		AND book_id = #{book_id}
+	</delete>
+
+	<!-- 사용자 전체 목록(도서 JOIN 없이) -->
+	<select id="selectCartByUserId" parameterType="string"
+		resultType="com.boot.dto.CartDTO">
+		SELECT cart_id, user_id, book_id, quantity, cart_date
+		FROM cart
+		WHERE user_id = #{user_id}
+		ORDER BY cart_date DESC
+	</select>
+	<update id="updateCartQuantityByParams">
+		UPDATE cart
+		SET quantity = #{quantity}
+		WHERE cart_id = #{cart_id}
+	</update>
+
+	<delete id="deleteCartItems" parameterType="java.util.List">
+		DELETE FROM cart
+		WHERE cart_id IN
+		<foreach collection="cartIds" item="cartId" open="("
+			separator="," close=")">
+			#{cartId}
+		</foreach>
+	</delete>
+
+	<delete id="deleteCartByUserId" parameterType="string">
+		DELETE FROM cart WHERE user_id = #{user_id}
+	</delete>
+
+</mapper>
