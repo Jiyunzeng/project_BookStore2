@@ -83,7 +83,7 @@
 
 <details>
 <summary><strong>🛍 사용자 기능</strong></summary>
-![Uploading 책갈피_메인화면.png…]()
+<img width="1263" height="650" alt="책갈피_메인화면" src="https://github.com/user-attachments/assets/a2bf9a81-8263-4c78-bc80-489933175dd3" />
 
 - 도서 검색 / 카테고리별 조회
   
