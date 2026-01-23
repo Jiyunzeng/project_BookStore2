@@ -98,7 +98,7 @@
   <br>
   <img width="1267" height="604" alt="책갈피_도서상세정보" src="https://github.com/user-attachments/assets/b19ea642-99e3-4032-a67b-d1e81b886ffa" />
   <br><br>
-  <img width="500" height="421" alt="책갈피_도서상세정보2" src="https://github.com/user-attachments/assets/b1ec925a-d474-4798-b9a5-8bdab660979a" />
+  <img width="700" height="421" alt="책갈피_도서상세정보2" src="https://github.com/user-attachments/assets/b1ec925a-d474-4798-b9a5-8bdab660979a" />
 
 
 </details>
