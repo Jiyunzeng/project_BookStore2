@@ -84,7 +84,7 @@
 
 <summary>🛍 사용자 기능</summary>
 <details>
-  <summary도서 검색 / 카테고리별 조회</summary>
+  <summary>도서 검색 / 카테고리별 조회</summary>
   <br>
   <img width="1263" height="650" alt="책갈피_메인화면"
        src="https://github.com/user-attachments/assets/257b14ba-7c81-4c7a-8dc0-6b1afc78c41f" />
