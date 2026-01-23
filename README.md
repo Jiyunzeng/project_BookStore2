@@ -102,7 +102,8 @@
 <details>
   <summary>찜(좋아요) 목록 관리</summary>
   <br>
-  <!-- 여기에 이미지 넣기 -->
+  <img width="1226" height="767" alt="책갈피_마이페이지찜목록" src="https://github.com/user-attachments/assets/1b10a746-5207-4503-a7bc-77f9beb7ee7c" />
+
 </details>
 
 <details>
