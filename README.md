@@ -109,7 +109,8 @@
 <details>
   <summary>장바구니 (추가, 수량 변경, 삭제)</summary>
   <br>
-  <!-- 여기에 이미지 넣기 -->
+  <img width="1257" height="608" alt="책갈피_장바구니" src="https://github.com/user-attachments/assets/d4cd7025-2444-4f4f-a5f7-3bd737666427" />
+
 </details>
 
 <details>
