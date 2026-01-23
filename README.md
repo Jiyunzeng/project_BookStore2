@@ -82,7 +82,7 @@
 ## 🧩 기능 구성 (클릭해서 보기)
 
 
-<summary><strong>🛍 사용자 기능</strong></summary>
+<summary>🛍 사용자 기능</summary>
 <details>
   <summary><strong>도서 검색 / 카테고리별 조회</strong></summary>
   <br>
@@ -94,31 +94,31 @@
 </details>
 
 <details>
-  <summary><strong>도서 상세보기 (리뷰, 평점 포함)</strong></summary>
+  <summary>도서 상세보기 (리뷰, 평점 포함)</summary>
   <br>
   <!-- 여기에 이미지 넣기 -->
 </details>
 
 <details>
-  <summary><strong>찜(좋아요) 목록 관리</strong></summary>
+  <summary>찜(좋아요) 목록 관리</summary>
   <br>
   <!-- 여기에 이미지 넣기 -->
 </details>
 
 <details>
-  <summary><strong>장바구니 (추가, 수량 변경, 삭제)</strong></summary>
+  <summary>장바구니 (추가, 수량 변경, 삭제)</summary>
   <br>
   <!-- 여기에 이미지 넣기 -->
 </details>
 
 <details>
-  <summary><strong>도서 결제 (Toss Payments API)</strong></summary>
+  <summary>도서 결제 (Toss Payments API)</summary>
   <br>
   <!-- 여기에 이미지 넣기 -->
 </details>
 
 <details>
-  <summary><strong>주문 생성 / 주문 내역 조회</strong></summary>
+  <summary>주문 생성 / 주문 내역 조회</summary>
   <br>
   <!-- 여기에 이미지 넣기 -->
 </details>
