@@ -125,7 +125,8 @@
 <details>
   <summary>주문 생성 / 주문 내역 조회</summary>
   <br>
-  <!-- 여기에 이미지 넣기 -->
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+
 </details>
 
 <summary><strong>🔐 회원 기능</strong></summary>
