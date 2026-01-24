@@ -103,14 +103,12 @@
   <summary>찜(좋아요) 목록 관리</summary>
   <br>
   <img width="1226" height="767" alt="책갈피_마이페이지찜목록" src="https://github.com/user-attachments/assets/1b10a746-5207-4503-a7bc-77f9beb7ee7c" />
-
 </details>
 
 <details>
   <summary>장바구니 (추가, 수량 변경, 삭제)</summary>
   <br>
   <img width="1257" height="608" alt="책갈피_장바구니" src="https://github.com/user-attachments/assets/d4cd7025-2444-4f4f-a5f7-3bd737666427" />
-
 </details>
 
 <details>
@@ -119,14 +117,12 @@
   <img width="649" height="686" alt="토스결제 1" src="https://github.com/user-attachments/assets/5928ce09-95d7-4161-abe5-89493f27eb38" />
   <br><br>
   <img width="606" height="686" alt="토스결제2 1" src="https://github.com/user-attachments/assets/a6134460-0f87-4d34-a0ae-97eca5547de7" />
-
 </details>
 
 <details>
   <summary>주문 생성 / 주문 내역 조회</summary>
   <br>
   <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-
 </details>
 
 <summary><strong>🔐 회원 기능</strong></summary>
