@@ -82,7 +82,7 @@
 ## 🧩 기능 구성 (클릭해서 보기)
 
 
-<summary><strong>🛍 사용자 기능</strong></summary>
+<strong>🛍 사용자 기능</strong>
 <details>
   <summary>도서 검색 / 카테고리별 조회</summary>
   <br>
