@@ -225,9 +225,7 @@
   <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
 </details>
 
-
 --
-
 
 ## 🧭 메뉴 구조도 (PDF)
 
