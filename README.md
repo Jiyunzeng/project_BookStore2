@@ -125,105 +125,79 @@
 
 <strong>🔐 회원 기능</strong>
 <details>
-  <summary>회원가입 / 로그인 / 로그아웃 </summary>
+  <summary>회원가입</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="742" height="904" alt="책갈피_회원가입" src="https://github.com/user-attachments/assets/4b488c5b-819f-4d58-95d6-9fc63da15d75" />
+
 </details>
 <details>
   <summary>소셜 로그인(Naver / Google)  </summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-</details>
-<details>
-  <summary>아이디·비밀번호 찾기</summary>
-  <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1160" height="564" alt="책갈피_로그인1" src="https://github.com/user-attachments/assets/d385e250-de18-4c7d-8267-a5aa243ede3a" />
 </details>
 <details>
   <summary>마이페이지(조회, 수정, 삭제) </summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1259" height="615" alt="책갈피_마이페이지내정보수정" src="https://github.com/user-attachments/assets/faf9efe7-5705-4796-b401-210cd6ff2ca4" />
 </details>
 <details>
-  <summary>탈퇴 회원 관리</summary>
-  <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-</details>
-<details>
-  <summary>찜한 도서 목록 확인 </summary>
-  <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-</details>
 
 <strong>💬 커뮤니티 기능</strong>
 <details>
-  <summary>사용자 게시판(글 작성, 수정, 조회, 삭제)</summary>
+  <summary>사용자 게시판</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1213" height="825" alt="책갈피_게시판목록" src="https://github.com/user-attachments/assets/02f4ab00-3f71-48ff-a31f-66060de7bccd" />
+  <img width="1257" height="749" alt="image 20" src="https://github.com/user-attachments/assets/a65508cc-3b67-47f7-8aee-b06e8da9c732" />
+  <img width="1291" height="843" alt="image 21" src="https://github.com/user-attachments/assets/f8a008fc-c48b-43c9-a889-c008701e3ede" />
+  <img width="1143" height="904" alt="image 22" src="https://github.com/user-attachments/assets/9b332d70-9715-4495-ae40-bded16a9b7f8" />
 </details>
 <details>
   <summary>사용자 공지사항(공지 조회)</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1285" height="728" alt="image 24" src="https://github.com/user-attachments/assets/25e61701-4981-423f-ac88-9a5e1d19461a" />
 </details>
 <details>
   <summary>1대1 문의</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1013" height="413" alt="image 14" src="https://github.com/user-attachments/assets/74b9234a-677c-4fd6-8fb3-a2a423eb4aeb" />
 </details> 
 
 <strong>🤖 AI 기능</strong>
 <details>
   <summary>Gemini API 기반 챗봇  </summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  
 </details>
 <details>
   <summary>사용자 질문 자동 응답 </summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  
 </details>
 
 <strong>🛠 관리자 기능</strong>
 <details>
   <summary>회원 관리 (상태 변경, 탈퇴 회원 관리)</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1241" height="610" alt="image 2" src="https://github.com/user-attachments/assets/69bb346c-e0d4-4fff-90eb-6b60ffe2bb6a" />
 </details>
 <details>
   <summary>도서 관리 (등록 / 수정 / 삭제)</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1228" height="604" alt="image 4" src="https://github.com/user-attachments/assets/e64eb73a-613f-40e4-90da-ca743dc931b4" />
 </details>
 <details>
   <summary>게시판 관리 (사용자 게시판·공지사항)</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1278" height="518" alt="image 34" src="https://github.com/user-attachments/assets/59c426cf-75e8-4074-9737-c18e63f2a2fd" />
 </details>
 <details>
   <summary>주문 관리 (주문 리스트, 주문 상세)</summary>
   <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+  <img width="1285" height="607" alt="image 42" src="https://github.com/user-attachments/assets/5a474994-ac59-4925-b8d3-4d0a3afdcf51" />
 </details>
 <details>
-  <summary>문의 리스트 관리</summary>
-  <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-</details>
 
-<strong>🚀 기타 기능</strong>
-<details>
-  <summary>페이징, 검색 </summary>
-  <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-</details>
-<details>
-  <summary>세션 기반 로그인 인증 처리 </summary>
-  <br>
-  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
-</details>
 
---
 
 ## 🧭 메뉴 구조도 (PDF)
 
