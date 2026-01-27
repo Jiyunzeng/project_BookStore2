@@ -115,8 +115,6 @@
   <summary>도서 결제 (Toss Payments API)</summary>
   <br>
   <img width="649" height="686" alt="토스결제 1" src="https://github.com/user-attachments/assets/5928ce09-95d7-4161-abe5-89493f27eb38" />
-  <br><br>
-  <img width="606" height="686" alt="토스결제2 1" src="https://github.com/user-attachments/assets/a6134460-0f87-4d34-a0ae-97eca5547de7" />
 </details>
 
 <details>
