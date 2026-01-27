@@ -186,20 +186,44 @@
   <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
 </details>
 
+<strong>🛠 관리자 기능</strong>
+<details>
+  <summary>회원 관리 (상태 변경, 탈퇴 회원 관리)</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>도서 관리 (등록 / 수정 / 삭제)</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>게시판 관리 (사용자 게시판·공지사항)</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>주문 관리 (주문 리스트, 주문 상세)</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>문의 리스트 관리</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
 
-<summary><strong>🛠 관리자 기능</strong></summary>
-
-- **회원 관리** (상태 변경, 탈퇴 회원 관리)  
-- **도서 관리** (등록 / 수정 / 삭제)  
-- **게시판 관리** (사용자 게시판·공지사항)  
-- **주문 관리** (주문 리스트, 주문 상세)  
-- 문의 리스트 관리  
-
-
-<summary><strong>🚀 기타 기능</strong></summary>
-
-- 페이징, 검색  
-- 세션 기반 로그인 인증 처리  
+<strong>🚀 기타 기능</strong>
+<details>
+  <summary>페이징, 검색 </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>세션 기반 로그인 인증 처리 </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
 
 
 --
