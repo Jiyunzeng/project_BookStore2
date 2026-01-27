@@ -160,13 +160,9 @@
 <details>
   <summary>Gemini API 기반 챗봇  </summary>
   <br>
-  
+  <img width="2879" height="1384" alt="스크린샷 2026-01-28 005901" src="https://github.com/user-attachments/assets/74ae323a-0630-488b-9d77-3d0d82a7d434" />
 </details>
-<details>
-  <summary>사용자 질문 자동 응답 </summary>
-  <br>
-  
-</details>
+
 
 <strong>🛠 관리자 기능</strong>
 <details>
