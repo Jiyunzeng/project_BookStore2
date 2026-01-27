@@ -92,7 +92,6 @@
   <img width="1260" height="649" alt="책갈피_도서검색"
        src="https://github.com/user-attachments/assets/76e02b00-3c47-4950-af11-4d555c9c5606" />
 </details>
-
 <details>
   <summary>도서 상세보기 (리뷰, 평점 포함)</summary>
   <br>
@@ -110,13 +109,11 @@
   <br>
   <img width="1257" height="608" alt="책갈피_장바구니" src="https://github.com/user-attachments/assets/d4cd7025-2444-4f4f-a5f7-3bd737666427" />
 </details>
-
 <details>
   <summary>도서 결제 (Toss Payments API)</summary>
   <br>
   <img width="649" height="686" alt="토스결제 1" src="https://github.com/user-attachments/assets/5928ce09-95d7-4161-abe5-89493f27eb38" />
 </details>
-
 <details>
   <summary>주문 생성 / 주문 내역 조회</summary>
   <br>
@@ -128,7 +125,6 @@
   <summary>회원가입</summary>
   <br>
   <img width="742" height="904" alt="책갈피_회원가입" src="https://github.com/user-attachments/assets/4b488c5b-819f-4d58-95d6-9fc63da15d75" />
-
 </details>
 <details>
   <summary>소셜 로그인(Naver / Google)  </summary>
@@ -140,7 +136,6 @@
   <br>
   <img width="1259" height="615" alt="책갈피_마이페이지내정보수정" src="https://github.com/user-attachments/assets/faf9efe7-5705-4796-b401-210cd6ff2ca4" />
 </details>
-<details>
 
 <strong>💬 커뮤니티 기능</strong>
 <details>
