@@ -125,14 +125,37 @@
   <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
 </details>
 
-<summary><strong>🔐 회원 기능</strong></summary>
-
-- 회원가입 / 로그인 / 로그아웃  
-- 소셜 로그인(Naver / Google)  
-- 아이디·비밀번호 찾기  
-- 마이페이지(조회, 수정, 삭제)  
-- 탈퇴 회원 관리  
-- 찜한 도서 목록 확인  
+<strong>🔐 회원 기능</strong>
+<details>
+  <summary>회원가입 / 로그인 / 로그아웃 </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>소셜 로그인(Naver / Google)  </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>아이디·비밀번호 찾기</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>마이페이지(조회, 수정, 삭제) </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>탈퇴 회원 관리</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>찜한 도서 목록 확인 </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
 
 
 <summary><strong>💬 커뮤니티 기능</strong></summary>
