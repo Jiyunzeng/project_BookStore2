@@ -174,11 +174,17 @@
   <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
 </details> 
 
-
-<summary><strong>🤖 AI 기능</strong></summary>
-
-- Gemini API 기반 챗봇  
-- 사용자 질문 자동 응답  
+<strong>🤖 AI 기능</strong>
+<details>
+  <summary>Gemini API 기반 챗봇  </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>사용자 질문 자동 응답 </summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
 
 
 <summary><strong>🛠 관리자 기능</strong></summary>
