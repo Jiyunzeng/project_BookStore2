@@ -157,12 +157,22 @@
   <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
 </details>
 
-
-<summary><strong>💬 커뮤니티 기능</strong></summary>
-
-- 사용자 게시판(글 작성, 수정, 조회, 삭제)  
-- 사용자 공지사항(공지 조회)  
-- 1대1 문의  
+<strong>💬 커뮤니티 기능</strong>
+<details>
+  <summary>사용자 게시판(글 작성, 수정, 조회, 삭제)</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>사용자 공지사항(공지 조회)</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details>
+<details>
+  <summary>1대1 문의</summary>
+  <br>
+  <img width="1261" height="606" alt="책갈피_마이페이지구매상세내역" src="https://github.com/user-attachments/assets/f9cc6cee-fb91-4013-aaa0-4cad7b903b1b" />
+</details> 
 
 
 <summary><strong>🤖 AI 기능</strong></summary>
