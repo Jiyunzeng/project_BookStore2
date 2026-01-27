@@ -195,7 +195,6 @@
   <br>
   <img width="1285" height="607" alt="image 42" src="https://github.com/user-attachments/assets/5a474994-ac59-4925-b8d3-4d0a3afdcf51" />
 </details>
-<details>
 
 
 
